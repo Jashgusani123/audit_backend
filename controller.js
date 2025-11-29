@@ -55,3 +55,8 @@ export const getVersions = (request, response) => {
     versions,
   });
 };
+
+export const deleteHistory = (req, res) => {
+  fs.writeFileSync("versions.json", JSON.stringify([], null, 2));
+  res.json({ success: true, message: "Version history cleared." });
+};
